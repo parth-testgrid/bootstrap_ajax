@@ -76,3 +76,51 @@ if (isset($_POST['id']) && !empty(trim($_POST["id"])) && isset($_POST['action'])
     <?= $parent_id ?>
   </li>
 </ul>
+
+
+
+
+
+
+
+//     if ($result = mysqli_query($conn, $rootNode)) {
+//         $numOfRows = mysqli_num_rows($result);
+//         if ($numOfRows > 0) { ?>
+//       <ul class="list-group">
+//         <?php while ($row = mysqli_fetch_array($result)) {
+//             $parentNodeID = $row["id"]; ?>
+//           <li class="list-group-item"><?= $row["name"] ?></li>
+//         <?php
+//         } ?>
+//       </ul>
+//   <?php }
+//     }
+
+// if (isset($_SESSION["current_user"])) {
+    //     $current_user = $_SESSION["current_user"];
+    //     $user_id = $_SESSION["user_id"];
+    
+    //     $rootNode = "SELECT * FROM employees WHERE parent_id IS NULL";
+    
+    
+    
+    //     $selectAll = "SELECT * FROM employees";
+    //     $allResult = mysqli_query($conn, $selectAll);
+    //     $allResultArray = mysqli_fetch_all($allResult);
+    
+    //     foreach ($allResultArray as $records) {
+    //         // if ($records[0] == $parentNodeID) {
+    //         //   echo "Parent: " . $records[2];
+    //         // }
+    
+    //         foreach ($allResultArray as $records2) {
+    //             if ($records[0] == $records2[9]) {
+    //                 echo "<li> Parent: " .
+    //                     $records[2] .
+    //                     " Child: " .
+    //                     $records2[2] .
+    //                     "</li>";
+    //             }
+    //         }
+    //     }
+    // }

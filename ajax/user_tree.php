@@ -1,21 +1,26 @@
 <?php
 session_start();
+require_once "../config.php";
 
-
-// print_r($_SESSION["current_user"]);
-
-
-$data = returnUserData($_SESSION["user_id"]);
+$data = returnUserData(42);
 print_r($data);
-function returnUserData($userID){
-  require_once "../config.php";
-  $selectAll = "SELECT * FROM employees where parent_id=".$userID;
-  $allResult = mysqli_query($conn, $selectAll);
-  $allResultArray = mysqli_fetch_all($allResult);
+function returnUserData($userID)
+{
+  $selectAll = "SELECT * FROM employees where parent_id=" . $userID;
+  $allResult = mysqli_query($GLOBALS['conn'], $selectAll);
 
-  if ($userID) {
-    
+  $allResultArray = [];
+
+  if (mysqli_num_rows($allResult) > 0) {
+    while ($row = mysqli_fetch_array($allResult)) {
+      $allResultArray[$row['id']] = returnUserData($row['id']);
+      echo "<br>";
+      print_r($row['id']);
+      echo "<br>";
+    }
   }
 
   return $allResultArray;
 }
+
+// check current node while inserting 
